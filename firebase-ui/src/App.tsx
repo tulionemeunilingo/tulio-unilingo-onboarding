@@ -44,8 +44,12 @@ function App() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/uploader");
-    } catch (err: any) {
-      setError("Error signing in: " + err.message);
+    } catch (err) {
+      if (err instanceof Error) {
+        setError("Error signing in: " + err.message);
+      } else {
+        setError("Unknown error signing in.");
+      }
     }
   };
 
@@ -55,16 +59,24 @@ function App() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       navigate("/uploader");
-    } catch (err: any) {
-      setError("Error signing up: " + err.message);
+    } catch (err) {
+      if (err instanceof Error) {
+        setError("Error signing up: " + err.message);
+      } else {
+        setError("Unknown error signing up.");
+      }
     }
   };
 
   const handleSignOut = async () => {
     try {
       await signOut(auth);
-    } catch (err: any) {
-      setError("Error signing out: " + err.message);
+    } catch (err) {
+      if (err instanceof Error) {
+        setError("Error signing out: " + err.message);
+      } else {
+        setError("Unknown error signing out.");
+      }
     }
   };
 
