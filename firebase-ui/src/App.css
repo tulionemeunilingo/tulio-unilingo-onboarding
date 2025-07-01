@@ -1,0 +1,132 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.auth-container {
+  max-width: 360px;
+  margin: 100px auto 16px;
+  padding: 32px 24px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1.5px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-container h2 {
+  color: #ffa100;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.auth-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background: #f7f7f7;
+  transition: border 0.2s;
+}
+
+.auth-container input:focus {
+  border: 1.5px solid #ffa100;
+  outline: none;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+
+.auth-container button[type="button"] {
+  background: #ffa100;
+  color: white;
+}
+
+.auth-container button[type="submit"] {
+  background: #039be5;
+  color: white;
+}
+
+.auth-container button:hover {
+  opacity: 0.92;
+}
+
+.auth-container .error {
+  color: #e53935;
+  margin-top: 8px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.auth-container p {
+  margin: 12px 0 0 0;
+  font-size: 16px;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .auth-container {
+    margin: 32px 8px;
+    padding: 20px 8px;
+  }
+}
