@@ -20,7 +20,7 @@ import {
   User,
 } from "firebase/auth";
 import "./firebase";
-import Uploader from "./Uploader";
+import Uploader from "./pages/Uploader";
 import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
