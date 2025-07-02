@@ -1,6 +1,6 @@
 import * as admin from "firebase-admin";
-import { transcribeOnCreate } from "./transcriber";
+import {transcribeOnCreate} from "./transcriber";
 
-export { transcribeOnCreate };
+export {transcribeOnCreate};
 
 admin.initializeApp();
