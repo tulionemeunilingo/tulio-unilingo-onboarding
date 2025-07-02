@@ -101,24 +101,6 @@ export const transcribeOnCreate = onDocumentCreated(
       const transcript =
         dgResult.results?.channels?.[0]?.alternatives?.[0]?.transcript || "";
 
-      // Save transcript as a file in Storage
-      const transcriptFilePath =
-        `users/${userId}/videos/${videoId}/transcript.txt`;
-      const transcriptTempPath = path.join(
-        os.tmpdir(),
-        `${videoId}-transcript.txt`,
-      );
-      fs.writeFileSync(transcriptTempPath, transcript);
-
-      logger.info("Transcript saved to temporary file");
-
-      await bucket.upload(transcriptTempPath, {
-        destination: transcriptFilePath,
-        contentType: "text/plain",
-      });
-
-      logger.info("Transcript uploaded to Storage");
-
       // Save transcript in Firestore
       await admin
         .firestore()
