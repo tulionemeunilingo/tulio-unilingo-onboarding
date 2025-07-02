@@ -6,8 +6,9 @@ import * as os from "os";
 import * as path from "path";
 import * as fs from "fs";
 import fetch from "node-fetch";
-import * as dotenv from "dotenv";
-dotenv.config();
+
+import { defineSecret } from "firebase-functions/params";
+const DEEPGRAM_API_KEY = defineSecret("DEEPGRAM_API_KEY");
 
 type DeepgramResponse = {
   results?: {
@@ -18,7 +19,10 @@ type DeepgramResponse = {
 };
 
 export const transcribeOnCreate = onDocumentCreated(
-  "/users/{userId}/videos/{videoId}",
+  {
+    document: "/users/{userId}/videos/{videoId}",
+    secrets: [DEEPGRAM_API_KEY],
+  },
   async (event) => {
     logger.info("transcribeOnCreate function triggered!");
     const snapshot = event.data;
@@ -55,7 +59,7 @@ export const transcribeOnCreate = onDocumentCreated(
       });
 
       // Send audio to Deepgram API
-      const deepgramApiKey = process.env.DEEPGRAM_API_KEY;
+      const deepgramApiKey = DEEPGRAM_API_KEY.value();
       const audioBuffer = fs.readFileSync(tempAudioPath);
       const response = await fetch("https://api.deepgram.com/v1/listen", {
         method: "POST",
