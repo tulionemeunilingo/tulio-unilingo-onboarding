@@ -15,6 +15,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "dotenv": "^17.0.1",
     "ffmpeg-static": "^5.2.0",
     "firebase-admin": "^12.6.0",
